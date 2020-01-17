@@ -1,4 +1,4 @@
- html>-->
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,13 +17,13 @@
 
 <nav>
 
-  <img src="sos31.png">
+  <img src="sos3.png">
 
   <ul>
-    <li><a href="#home" style="text-decoration:none;"><font color="white">Home</font></a></li>
-    <li><a href="#gall" style="text-decoration:none;"><font color="white">Travelling Gallery</font></a></li>
-    <li><a href="#convert" style="text-decoration:none;"><font color="white">Currency Converter</font></a></li>
-    <li><a href="#cont" style="text-decoration:none;"><font color="white">Contact</font></a></li>
+   <li><a href="cricket.html">CRICKET</a></li>
+  <li><a href="football.html">FOOTBALL</a></li>
+  <li><a href="basketball.html">BASKETBALL</a></li>
+  <li><a href="tennis.html">TENNIS</a></li>
   </ul>
 </nav>
 
@@ -63,32 +63,23 @@
 
 
        <section class="gallery" id="gall">
-         <h1>Travelling Gallery</h1>
+         <h1>Sports Gallery</h1>
         <div class="container">
           <div class="row">
             <div class="col-md-3">
               <div class="gallery-box">
 
 
-              <a href="ny.html"><img src="nyg.jpg"></a>
-              <h4>New York City</h4>
+              <a href="cricket.html"><img src="cricket.jpg"></a>
+              <h4>Cricket</h4>
               </div>
             </div>
             <div class="col-md-3">
               <div class="gallery-box">
 
 
-              <a href="malibu.html"><img src="malibug.jpg"></a>
-              <h4>Malibu</h4>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="gallery-box">
-
-
-              <a href="london1.html"><img src="londong.jpg" height="170"></a>
-              <h4>London</h4>
+              <a href="football.html"><img src="football.jpg"></a>
+              <h4>Football</h4>
               </div>
             </div>
 
@@ -96,8 +87,17 @@
               <div class="gallery-box">
 
 
-              <a href="athens.html"><img src="greeceg.jpg" height="170"></a>
-              <h4>Athens</h4>
+              <a href="basketball.html"><img src="basketball.jpg" height="170"></a>
+              <h4>Basketball</h4>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="gallery-box">
+
+
+              <a href="tennis.html"><img src="tennis.jpg" height="170"></a>
+              <h4>Tennis</h4>
               </div>
             </div>
 
@@ -105,126 +105,31 @@
 
         </div>
        </section>
-
-       <section class="banner" id="convert">
-      <div class="banner-highlights">
-
-
-        <table>
-        <tr>
-          <td style="padding-left:600px">
-          <div class="currency" >
-
-              <input type="text" name="from_VAL" id="from_VAL" placeholder="Enter amount"  style="background-color: #eee; font-weight: bold;" /><br>
-              <!-- <button type="button" name="button" onclick="convert()"> Convert </button> -->
-            <br>
-            <div class="conv">
-              <select id="from" class="postfix"  style="background-color: #eee; font-weight: bold;">
-                <option value="AUD" >AUD</option>
-                <option value="AZN" >AZN</option>
-                <option value="BHD" >BHD</option>
-                <option value="CAD" >CAD</option>
-                <option value="CHF" >CHF</option>
-                <option value="EUR" >EUR</option>
-                <option value="GBP" >GBP</option>
-                <option value="INR" >INR</option>
-                <option value="JOD" >JOD</option>
-                <option value="KWD" >KWD</option>
-                <option value="KYD" >KYD</option>
-                <option value="OMR" >OMR</option>
-                <option value="USD" selected>USD</option>
-                <option value="UYU" >UYU</option>
-              </select>
-            </div><br>
-            <p> <button type="button" name="button" onclick="convert()"  style="background-color: #eee; font-weight: bold ;"> Convert </button></p>
-             <div class="conv">
-               <select id="to" class="postfix" style="background-color: #eee; font-weight: bold;">
-                 <option value="AUD" >AUD</option>
-                 <option value="AZN" >AZN</option>
-                 <option value="BHD" >BHD</option>
-                 <option value="CAD" >CAD</option>
-                 <option value="CHF" >CHF</option>
-                 <option value="EUR" >EUR</option>
-                 <option value="GBP" >GBP</option>
-                 <option value="INR" selected>INR</option>
-                 <option value="JOD" >JOD</option>
-                 <option value="KWD" >KWD</option>
-                 <option value="KYD" >KYD</option>
-                 <option value="OMR" >OMR</option>
-                 <option value="USD">USD</option>
-                 <option value="UYU" >UYU</option>
-               </select>
-            </div>
-            <br>
-            <div class="conv">
-              <input type="text" id="to_VAL" readonly placeholder="Get value" value="0" disabled style="background-color: #eee; font-weight: bold;" />
-
-            </div>
-          </div>
-          <script>
-            function convert(){
-
-        var from =document.getElementById("from").value;
-        var to = document.getElementById("to").value;
-        var xmlhttp= new XMLHttpRequest();
-        var url="https://free.currencyconverterapi.com/api/v6/convert?q="+from+"_"+to+"&compact=ultra&apiKey=44bbef74df526f28aa0a";
-
-        xmlhttp.open("GET", url, true);//async
-        xmlhttp.send();
-        xmlhttp.onreadystatechange=function(){
-        if(this.readyState === 4 && this.status === 200 )
-        {
-        var result=this.responseText;
-        console.log(result);
-        var jsResult=JSON.parse(result);
-                  var q = from+"_"+to;
-                  console.log(q);
-                  console.log(jsResult[q]);
-
-                  var amount = jsResult[q] * document.getElementById('from_VAL').value;
-                  console.log(amount);
-        document.getElementById("to_VAL").value= amount;
-        }
-              }
-            }
-          </script>
-
-          </td>
-        </tr>
-        </table>
-        <!-- </table> -->
-        <br>
-        </div>
-
-
-      </div>
-       </section>
-
        <section class="users-feedback">
          <h1>Users Review</h1>
          <div class="container">
            <div class="row">
           <div class="col-md-4">
             <div class="user-review">
-              <p>With a focus on interface design, It strives to offer travelers the most intuitive online travel services available. Their easy-to-navigate website makes everything quick and easy.</p>
-             <h5>John Watson</h5>
-             <small>Canada</small>
+              <p>With a focus on interface design, It strives to offer athletes the most intuitive online sports necessities. Their easy-to-navigate website makes everything quick and easy.</p>
+             <h5>Mary Kom</h5>
+             <small>India</small>
             </div>
             <img src="p4.jpg">
           </div>
           <div class="col-md-4">
             <div class="user-review">
-              <p>With a focus on interface design, It strives to offer travelers the most intuitive online travel services available. Their easy-to-navigate website makes everything quick and easy.</p>
-             <h5>Sara Ltryte</h5>
-             <small>California</small>
+              <p>With a focus on interface design, It strives to offer athletes the most intuitive online sports necessities. Their easy-to-navigate website makes everything quick and easy.</p>
+             <h5>LeBron James</h5>
+             <small>United States</small>
             </div>
             <img src="p6.jpg">
           </div>
           <div class="col-md-4">
             <div class="user-review">
-              <p>With a focus on interface design, It strives to offer travelers the most intuitive online travel services available. Their easy-to-navigate website makes everything quick and easy.</p>
-             <h5>Avan</h5>
-             <small>Turkey</small>
+              <p>With a focus on interface design, It strives to offer athletes the most intuitive online sports necessities. Their easy-to-navigate website makes everything quick and easy.</p>
+             <h5>Serena Williams</h5>
+             <small>United States</small>
             </div>
             <img src="p1.jpg">
           </div>
@@ -277,7 +182,7 @@
   </div>
 </section>
 <div class="last">
-  <b>Made By</b> : <font color="white">DEVANSHI GARG</font>
+  <b>Made By</b> : <font color="white"> KUNAL SEHGAL</font>
 </div>
 
 
